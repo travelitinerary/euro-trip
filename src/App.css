@@ -1,0 +1,232 @@
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --background-color: #f5f7fa;
+  --card-background: #ffffff;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --accent-color: #e74c3c;
+  --success-color: #27ae60;
+  --warning-color: #f1c40f;
+  --border-radius: 12px;
+}
+
+.app {
+  background-color: var(--background-color);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.header {
+  background: var(--primary-color);
+  color: white;
+  padding: 24px;
+  border-radius: var(--border-radius);
+  margin-bottom: 24px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.date-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px;
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  margin-bottom: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+.date-tab {
+  padding: 10px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  background: var(--card-background);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.date-tab:hover {
+  background: var(--secondary-color);
+  color: white;
+  border-color: var(--secondary-color);
+}
+
+.date-tab.active {
+  background: var(--secondary-color);
+  color: white;
+  border-color: var(--secondary-color);
+  box-shadow: 0 2px 4px rgba(52, 152, 219, 0.2);
+}
+
+.trip-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  padding: 0 8px;
+}
+
+.trip-card {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.trip-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.trip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.trip-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Status variants */
+.status[data-status="Booked"] {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status[data-status="Planned"] {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
+.status[data-status="Pending"] {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.trip-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.trip-details > div {
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: var(--border-radius);
+}
+
+.trip-details h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.trip-details p {
+  margin: 8px 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.date-section p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.date-section p::before {
+  content: "📅";
+}
+
+.flight-section p::before {
+  content: "✈️";
+}
+
+.accommodation-section p::before {
+  content: "🏨";
+}
+
+.comments-section p::before {
+  content: "📝";
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .trip-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .trip-card {
+    padding: 16px;
+  }
+}
+
+.recommendations-section {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.recommendations-section h3 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.recommendations-section p {
+  margin: 0;
+  line-height: 1.5;
+  color: #495057;
+}
+
+.recommendations-section ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0.5rem 0;
+}
+
+.recommendations-section li {
+  padding-left: 1.5em;
+  position: relative;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.recommendations-section li:before {
+  content: "•";
+  position: absolute;
+  left: 0.5em;
+  color: var(--text-secondary);
+} 
