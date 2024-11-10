@@ -139,8 +139,13 @@ function App() {
   };
 
   useEffect(() => {
-    // Fetch the CSV file
-    fetch('/mytrip.csv')
+    // Update the path to include the base URL
+    const csvPath = import.meta.env.DEV 
+      ? '/mytrip.csv'  // Development path
+      : '/euro-trip/mytrip.csv';  // Production path
+
+    // Fetch the CSV file with updated path
+    fetch(csvPath)
       .then(response => response.text())
       .then(csvText => {
         const tripData = parseCSVData(csvText);
