@@ -230,8 +230,20 @@ function App() {
               
               {trip.comments && trip.comments.trim().length > 0 && (
                 <div className="comments-section">
-                  <h3>Notes</h3>
-                  <p>{trip.comments}</p>
+                  <h3>Comments</h3>
+                  <div className="comments-items">
+                    {trip.comments
+                      .split(/[;,]/)  // Split by either semicolon or comma
+                      .map(item => item.trim())
+                      .filter(item => item.length > 0)
+                      .map((item, index) => (
+                        <div key={index} className="comment-item">
+                          <span className="bullet">•</span>
+                          <span>{item}</span>
+                        </div>
+                      ))
+                    }
+                  </div>
                 </div>
               )}
             </div>

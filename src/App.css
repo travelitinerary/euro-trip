@@ -229,4 +229,35 @@
   position: absolute;
   left: 0.5em;
   color: var(--text-secondary);
-} 
+}
+
+.comments-section {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+.comments-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comment-item {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.comment-item .bullet {
+  color: var(--text-secondary);
+}
+
+.comments-section h3 {
+  color: var(--text-primary);
+  margin-bottom: 15px;
+}
+  
