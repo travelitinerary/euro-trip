@@ -139,12 +139,12 @@ function App() {
   };
 
   useEffect(() => {
-    // Update the path to include the base URL
-    const csvPath = import.meta.env.DEV 
-      ? '/mytrip.csv'  // Development path
-      : '/euro-trip/mytrip.csv';  // Production path
+    // Get the base URL from Vite
+    const baseUrl = import.meta.env.BASE_URL || '/';
+    // Construct the CSV path relative to the base URL
+    const csvPath = `${baseUrl}mytrip.csv`;
 
-    // Fetch the CSV file with updated path
+    // Fetch the CSV file
     fetch(csvPath)
       .then(response => response.text())
       .then(csvText => {
@@ -182,7 +182,7 @@ function App() {
   return (
     <div className="app">
       <header className="header">
-        <h1>Europe Trip 2024-2025</h1>
+        <h1>Euro Trip 2024-25</h1>
       </header>
 
       <div className="date-tabs">
